@@ -4,7 +4,7 @@ define(['require', 'kievII', 'image'], function(require, K2) {define(['require']
 
     /* This gets returned to the host as soon as the plugin is loaded */ 
     var pluginConf = {
-        name: "Voron"
+        name: "Voron",
         osc: false,
         audioIn: 1,
         audioOut: 1,
