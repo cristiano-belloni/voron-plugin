@@ -102,7 +102,6 @@ define(['require', 'kievII', 'image'], function(require, K2) {
                 /* Let's calculate the "play rate" */
                 shift_value = Math.pow(1.0595, semitoneShift);
                 this.shiftValue = shift_value;
-                console.log ('Shift value set to ', value, this.shiftValue);
                 this.ui.refresh();
             }.bind(this),
             isListening: true
