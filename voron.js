@@ -147,14 +147,13 @@ define(['require', 'kievII', 'image'], function(require, K2) {define(['require']
                         'image!./assets/images/switch_r.png!rel'];
         
         require (resList,
-                    function () {
-                        var resources = arguments;
-                        pluginFunction.call (this, args, resources);
-                    }.bind(this),
-                    function (err) {
-                        requireErr (err);
-                    });
-    };
+            function () {
+                var resources = arguments;
+                pluginFunction.call (this, args, resources);
+            }.bind(this),
+            function (err) {
+                requireErr (err);
+            });
     
     return {
         initPlugin: initPlugin,
