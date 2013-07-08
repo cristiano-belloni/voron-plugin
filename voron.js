@@ -154,6 +154,7 @@ define(['require', 'kievII', 'image'], function(require, K2) {define(['require']
             function (err) {
                 requireErr (err);
             });
+    };
     
     return {
         initPlugin: initPlugin,
