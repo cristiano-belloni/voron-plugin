@@ -141,10 +141,10 @@ define(['require', 'kievII', 'image'], function(require, K2) {define(['require']
 
         var resList = [ 'https://github.com/corbanbrook/dsp.js/raw/master/dsp.js',
                         'https://github.com/janesconference/KievII/raw/master/dsp/pitchshift.js',
-                        'image!./assets/images/Voron_bg2.png!rel'),
-                        'image!./assets/images/white_big.png!rel'),
-                        'image!./assets/images/switch_l.png!rel'),
-                        'image!./assets/images/switch_r.png!rel')];
+                        'image!./assets/images/Voron_bg2.png!rel',
+                        'image!./assets/images/white_big.png!rel',
+                        'image!./assets/images/switch_l.png!rel',
+                        'image!./assets/images/switch_r.png!rel'];
         
         require (resList,
                     function () {
