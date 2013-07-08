@@ -1,4 +1,5 @@
-define(['require', 'kievII', 'image'], function(require, K2) {define(['require'], function(require) {
+define(['require', 'kievII', 'image'], function(require, K2) {
+
   
     var imgResources = null;
 
@@ -13,7 +14,7 @@ define(['require', 'kievII', 'image'], function(require, K2) {define(['require']
             width: 268,
             height: 340
         },
-    }
+    };
 
     /* This gets called when all the resources are loaded */
     var pluginFunction = function (args, resources) {
@@ -47,12 +48,12 @@ define(['require', 'kievII', 'image'], function(require, K2) {define(['require']
             outputArray[0] = event.outputBuffer.getChannelData(0);
             var inputArray = [];
             inputArray[0] = event.inputBuffer.getChannelData(0);
-            // console.log ("input is long: ", inputArray[0].length);
+
             var data = inputArray[0];
             this.shifter.process (this.shiftValue, data.length, 4, data);
             
             var out_data = outputArray[0];
-            for (i = 0; i < out_data.length; ++i) {
+            for (var i = 0; i < out_data.length; ++i) {
                 out_data[i] = this.shifter.outdata[i];
             }
             
@@ -99,7 +100,7 @@ define(['require', 'kievII', 'image'], function(require, K2) {define(['require']
 					semitoneShift = Math.round(semitoneShift);
 				}
                 /* Let's calculate the "play rate" */
-                var shift_value = Math.pow(1.0595, semitoneShift);
+                shift_value = Math.pow(1.0595, semitoneShift);
                 this.shiftValue = shift_value;
                 console.log ('Shift value set to ', value, this.shiftValue);
                 this.ui.refresh();
@@ -126,16 +127,16 @@ define(['require', 'kievII', 'image'], function(require, K2) {define(['require']
         this.ui.addElement(new K2.Button(buttonArgs));
 
         this.ui.refresh();
-  };
+    };
   
     /* This function gets called by the host every time an instance of
        the plugin is requested [e.g: displayed on screen] */        
-    var initPlugin = function(initArgs) {
+    var initPlugin = function (initArgs) {
         var args = initArgs;
 
         var requireErr = function (err) {
             var failedId = err.requireModules && err.requireModules[0];
-            requirejs.undef(failedId);
+            require.undef(failedId);
             args.hostInterface.setInstanceStatus ('fatal', {description: 'Error initializing plugin: ' + failedId});
         }.bind(this);
 
