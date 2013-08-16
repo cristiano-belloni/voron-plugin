@@ -31,6 +31,18 @@ define(['require', 'kievII', 'image'], function(require, K2) {
         
         this.name = args.name;
         this.id = args.id;
+
+        if (args.initialState.data) {
+            /* Load data */
+            this.pluginState = args.initialState.data;    
+        }
+        else {
+            /* Use default data */
+            this.pluginState = {
+                shiftValue: 0.5,
+                discrete: 0
+            };
+        }
         
         // The sound part
         this.audioSource = args.audioSources[0];
@@ -91,6 +103,7 @@ define(['require', 'kievII', 'image'], function(require, K2) {
             stopAngValue: 501,
             /* knobMethod: 'updown', */
             onValueSet: function (slot, value) {
+                this.pluginState.shiftValue = value;
                 var shift_value = value * (1.5) + 0.5;
                 /* shift argument is like a play rate */
                 /* We want 0 -> 0.5, 0.5 -> 1, 1 -> 2 */
@@ -108,7 +121,7 @@ define(['require', 'kievII', 'image'], function(require, K2) {
         };
         
         this.ui.addElement(new K2.RotKnob(knobArgs));
-        this.ui.setValue({elementID: "pitch_knob", value: 0.5});
+        this.ui.setValue({elementID: "pitch_knob", value: this.pluginState.shiftValue});
 
 		/* Button init */
         var buttonArgs = {
@@ -117,7 +130,7 @@ define(['require', 'kievII', 'image'], function(require, K2) {
             top: 108,
             imagesArray : [discLeft, discRight],
             onValueSet: function (slot, value) {
-				this.discrete = value;
+				this.discrete = this.pluginState.discrete = value;
                 this.ui.refresh();
             }.bind(this),
             isListening: true
@@ -126,6 +139,12 @@ define(['require', 'kievII', 'image'], function(require, K2) {
         this.ui.addElement(new K2.Button(buttonArgs));
 
         this.ui.refresh();
+
+        this.saveState = function () {
+            return {
+                data: this.pluginState;
+            }
+        }
 
         // Initialization made it so far: plugin is ready.
         args.hostInterface.setInstanceStatus ('ready');
