@@ -141,10 +141,8 @@ define(['require', 'kievII', 'image'], function(require, K2) {
         this.ui.refresh();
 
         this.saveState = function () {
-            return {
-                data: this.pluginState;
-            }
-        }
+            return { data: this.pluginState };
+        };
 
         // Initialization made it so far: plugin is ready.
         args.hostInterface.setInstanceStatus ('ready');
