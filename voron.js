@@ -137,6 +137,7 @@ define(['require', 'kievII', 'image'], function(require, K2) {
         };
         
         this.ui.addElement(new K2.Button(buttonArgs));
+        this.ui.setValue({elementID: "discButton", value: this.pluginState.discrete});
 
         this.ui.refresh();
 
