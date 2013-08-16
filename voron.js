@@ -32,7 +32,7 @@ define(['require', 'kievII', 'image'], function(require, K2) {
         this.name = args.name;
         this.id = args.id;
 
-        if (args.initialState.data) {
+        if (args.initialState && args.initialState.data) {
             /* Load data */
             this.pluginState = args.initialState.data;    
         }
