@@ -1,4 +1,4 @@
-define(['require', 'kievII', 'image'], function(require, K2) {
+define(['require', 'github:janesconference/KievII@v0.5.0-jspm/dist/kievII'], function(require, K2) {
 
   
     var imgResources = null;
@@ -13,7 +13,7 @@ define(['require', 'kievII', 'image'], function(require, K2) {
             type:'canvas',
             width: 268,
             height: 340
-        },
+        }
     };
 
     /* This gets called when all the resources are loaded */
@@ -161,12 +161,12 @@ define(['require', 'kievII', 'image'], function(require, K2) {
             args.hostInterface.setInstanceStatus ('fatal', {description: 'Error initializing plugin: ' + failedId});
         }.bind(this);
 
-        var resList = [ 'https://github.com/corbanbrook/dsp.js/raw/master/dsp.js',
-                        'https://github.com/janesconference/KievII/raw/master/dsp/pitchshift.js',
-                        'image!./assets/images/Voron_bg2.png!rel',
-                        'image!./assets/images/white_big.png!rel',
-                        'image!./assets/images/switch_l.png!rel',
-                        'image!./assets/images/switch_r.png!rel'];
+        var resList = [ 'github:corbanbrook/dsp.js/dsp',
+                        'github:janesconference/KievII@v0.5.0-jspm/dsp/pitchshift',
+                        './assets/images/Voron_bg2.png!image',
+                        './assets/images/white_big.png!image',
+                        './assets/images/switch_l.png!image',
+                        './assets/images/switch_r.png!image'];
         
         require (resList,
             function () {
