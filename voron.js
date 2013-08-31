@@ -1,4 +1,4 @@
-define(['require', 'github:janesconference/KievII@v0.5.0-jspm/dist/kievII'], function(require, K2) {
+define(['require', 'github:janesconference/KievII@jspm0.5/dist/kievII'], function(require, K2) {
 
   
     var imgResources = null;
@@ -162,7 +162,7 @@ define(['require', 'github:janesconference/KievII@v0.5.0-jspm/dist/kievII'], fun
         }.bind(this);
 
         var resList = [ 'github:corbanbrook/dsp.js/dsp',
-                        'github:janesconference/KievII@v0.5.0-jspm/dsp/pitchshift',
+                        'github:janesconference/KievII@jspm0.5/dsp/pitchshift',
                         './assets/images/Voron_bg2.png!image',
                         './assets/images/white_big.png!image',
                         './assets/images/switch_l.png!image',
